@@ -4,7 +4,7 @@ var path = require("path");
 module.exports = function(app) {
   // GET Requests
   app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "./Develop/public/notes.html"));
+    res.sendFile(path.join(__dirname, "../Develop/public/notes.html"));
   });
 
   // Link to css file.
@@ -14,6 +14,6 @@ module.exports = function(app) {
 
   // If no matching route is found default to home page.
   app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
+    res.sendFile(path.join(__dirname, "../Develop/public/index.html"));
   });
 };
