@@ -13,8 +13,8 @@ app.use(express.json());
 
 // ROUTES
 // Point the server to the route files.
-require("./dispatch/apiDispatch")(app);
-require("./dispatch/htmlDispatch")(app);
+require("./dispatch/apiDispatch");
+require("./dispatch/htmlDispatch");
 
 // LISTENER
 app.listen(PORT, function() {

@@ -34,7 +34,7 @@
 
 
 const router = require('express').Router();
-const notes  = require('../../db/db.json');
+const notes  = require('../Develop/db/db.json');
 const uuid = require('uuid');
 const fs = require('fs');
 const path = require('path');
@@ -62,29 +62,29 @@ router.post('/notes', (req,res) => {
     
     //write to json file
     fs.writeFileSync(
-        path.join(__dirname, '../../db/db.json'),
+        path.join(__dirname, '../Develop/db/db.json'),
         JSON.stringify(notes)
     );
 })
 
-//delete a note
-router.delete('/notes/:id', (req,res) => {
-    const found = notes.some(note => note.id === req.params.id);
-    if(found){
-        res.json({msg: `Note deleted`, 
-        notes: notes.filter(note=> note.id != req.params.id)});
-    }
-    else{
-        res.status(400).json({msg: `No note with that id`});
-    }
-    //remove the note from the array
-    notes.splice(notes.indexOf(notes.filter(note=> note.id === req.params.id)[0]),1);
+// //delete a note
+// router.delete('/notes/:id', (req,res) => {
+//     const found = notes.some(note => note.id === req.params.id);
+//     if(found){
+//         res.json({msg: `Note deleted`, 
+//         notes: notes.filter(note=> note.id != req.params.id)});
+//     }
+//     else{
+//         res.status(400).json({msg: `No note with that id`});
+//     }
+//     //remove the note from the array
+//     notes.splice(notes.indexOf(notes.filter(note=> note.id === req.params.id)[0]),1);
 
-    //write to json file
-    fs.writeFileSync(
-        path.join(__dirname, '../../db/db.json'),
-        JSON.stringify(notes)
-    );
-})
+//     //write to json file
+//     fs.writeFileSync(
+//         path.join(__dirname, './db/db.json'),
+//         JSON.stringify(notes)
+//     );
+// })
 
 module.exports = router;

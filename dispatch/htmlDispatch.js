@@ -8,9 +8,9 @@ module.exports = function(app) {
   });
 
   // Link to css file.
-  app.get("/styles", function(req, res) {
-    res.sendFile(path.join(__dirname, "./Develop/public/styles.css"));
-  });
+  // app.get("/styles", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "./Develop/public/styles.css"));
+  // });
 
   // If no matching route is found default to home page.
   app.get("*", function(req, res) {
